@@ -1,0 +1,120 @@
+/* align the title with the amounts */
+th[data-id="debit"] {
+  text-align: right;
+}
+
+th[data-id="credit"] {
+  text-align: right;
+}
+
+th[data-id="amount"] {
+  text-align: right;
+}
+
+th[data-id="amount_total"] {
+  text-align: right;
+}
+
+th[data-id="amount_untaxed"] {
+  text-align: right;
+}
+
+th[data-id="product_qty"] {
+  text-align: right;
+}
+
+th[data-id="qty_done"] {
+  text-align: right;
+}
+
+th[data-id="product_uom_qty"] {
+  text-align: right;
+}
+
+
+th[data-id="qty_delivered"] {
+  text-align: right;
+}
+
+th[data-id="qty_invoiced"] {
+  text-align: right;
+}
+th[data-id="price_unit"] {
+  text-align: right;
+}
+th[data-id="discount"] {
+  text-align: right;
+}
+th[data-id="price_subtotal"] {
+  text-align: right;
+}
+th[data-id="quantity"] {
+  text-align: right;
+}
+
+
+th[data-id="amount_total_signed"] {
+  text-align: right;
+}
+
+
+th[data-id="residual_signed"] {
+  text-align: right;
+}
+
+th[data-id="balance_start"] {
+  text-align: right;
+}
+
+
+th[data-id="balance_end_real"] {
+  text-align: right;
+}
+
+th[data-id="amount_currency"] {
+  text-align: right;
+}
+
+/*
+th[data-field="debit"] {
+  options="{&quot;no_open&quot;:True}"
+}
+
+*/
+
+
+
+
+
+.o_list_number {
+  text-align: left;
+}
+
+/* have the amounts correctly alligned when grouping */
+.o_group_header {
+  text-align: right;
+}
+
+
+/* widen the modal forms  */
+.o_form_sheet {
+    max-width: 90%;
+    min-width: 80%;
+    margin: 10px auto;
+    }
+
+
+
+/* not sure about these two  */
+.openerp .oe_form_sheet_width {
+  max-width: 1200px !important;
+}
+
+.oe_form_sheet_width {
+  max-width: 1200px !important;
+}
+
+.o_list_view .table .table-condensed .table-striped {
+  border:1px solid #ddd;
+}
+        

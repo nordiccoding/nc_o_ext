@@ -1,0 +1,17 @@
+ //static/src/css/first_module.css
+
+.oe_web_module{
+ text-align:center;
+ margin-top: 50px;
+ margin-left: 50px;
+}
+.oe_web_module .html_elemet button{
+ border: 1px solid #CCC;
+ width:120px;
+ height: 30px;
+}
+
+.oe_web_module .html_elemet input{
+ width:120px;
+ height: 30px;
+}

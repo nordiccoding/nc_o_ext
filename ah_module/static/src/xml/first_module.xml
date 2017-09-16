@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+ <div t-name="odoo_web_module" class="oe_web_module">
+    <p>Web Module</p>
+     <div class="html_elemet">
+        <input type="text"/>            <br/><br/>
+        <button type="button">Click me!</button>
+     </div>
+ </div>
+</templates>

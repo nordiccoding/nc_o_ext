@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="web_tests assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/ah_module/static/src/css/first_module.css"/>
+
+                <script type="text/javascript" src="/ah_module/static/src/js/first_module.js"></script>
+            </xpath>
+        </template>
+
+        <record model="ir.actions.client" id="first_module_action">
+            <field name="name">Immobilien</field>
+            <field name="tag">ah_module.action</field> 
+        </record>
+
+        <menuitem action="first_module_action"
+                  id="first_module_menu"/>
+    </data>
+</odoo>
