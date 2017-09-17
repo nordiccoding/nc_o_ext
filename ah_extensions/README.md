@@ -37,8 +37,10 @@ Costcenter by Onestein (https://www.odoo.com/apps/modules/10.0/account_cost_cent
 
 Install account_move_template, web_export_view (https://github.com/OCA/web.git),
         account_fiscal_position_vat_check (https://github.com/OCA/account-financial-tools.git),
-        account_due_list,
+        https://github.com/OCA/account-payment.git -> account_due_list,
         https://github.com/OCA/bank-payment.git
+
+        https://github.com/OCA/server-tools.git -> this is for user managment
         
 Load Language DE
 Import Bank
