@@ -19,7 +19,9 @@ Manual steps
   and add a space in place of the symbol (blank field is not allowed). THIS SEEM NOT TO
   WORK => it will remove the currency sign in the reports/invoices.
 
-  I did do following for local currnce (hack must be fixed!)
+I did do following for local currnce (hack must be fixed!)
+
+```javascript
 
           // odoo/addons/web/static/src/js/views/list_viws.js after line 1990 ColumnMonetary
 
@@ -28,6 +30,7 @@ Manual steps
             if (currency.symbol==='€') {
                 return value;
             }
+```
 
 Some added info data ...
 
@@ -35,11 +38,10 @@ Costcenter by Onestein (https://www.odoo.com/apps/modules/10.0/account_cost_cent
                         git clone https://github.com/onesteinbv/addons-onestein.git)
 
 Install account_move_template, web_export_view (https://github.com/OCA/web.git),
-        account_fiscal_position_vat_check (https://github.com/OCA/account-financial-tools.git),
-        https://github.com/OCA/account-payment.git -> account_due_list,
-        https://github.com/OCA/bank-payment.git
-
-        https://github.com/OCA/server-tools.git -> this is for user managment
+account_fiscal_position_vat_check (https://github.com/OCA/account-financial-tools.git),
+https://github.com/OCA/account-payment.git -> account_due_list,
+https://github.com/OCA/bank-payment.git
+https://github.com/OCA/server-tools.git -> this is for user managment
         
 Load Language DE
 Import Bank
