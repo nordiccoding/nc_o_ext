@@ -31,7 +31,6 @@ Manual steps
 
 Some added info data ...
 
-
 Costcenter by Onestein (https://www.odoo.com/apps/modules/10.0/account_cost_center/
                         git clone https://github.com/onesteinbv/addons-onestein.git)
 
@@ -85,11 +84,13 @@ when an out-going invoice (when from company initiated statement) then internal 
 
 TODO: The forward / when posting invoice must be removed and substitued for Ref. Nr.
 
+
 Multi Currency
 --------------
 
 To get multi currency to work properly so that the foreign currency is correctly calculated and posted you must go 
 to the currencies and initiate the first rate for all currencies with the same time stamp.
+
 
 Test Data
 ---------
@@ -101,6 +102,7 @@ Bank setup
 
 Creditor Identifier for testing purposes: DE98ZZZ09999999999
 source ( https://www.bundesbank.de/Redaktion/EN/Standardartikel/Tasks/Payment_systems/sepa_creditor_identifier.html )
+
 
 Bank Reconciliation
 -------------------
