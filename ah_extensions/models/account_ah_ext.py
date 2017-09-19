@@ -8,3 +8,7 @@ class AccountAccount(models.Model):
     
     active = fields.Boolean(index=True, default=True, help="""When False will hide the account from all views.
                                                             To see de-activated fields again you must use the filters in list view.""")
+
+    kennziffer = fields.Char(string='Kennziffer', translate=True, help="""The number to be used in the German VAT return.""")
+
+
