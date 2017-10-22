@@ -10,7 +10,7 @@
              'keydown .html_elemet input': 'text_keypress'
          },
    button_click: function(){
-    alert("Hier ensteht CAPERA Immobilien Verwaltung!");
+    alert("Test!");
    },
    text_keypress: function(){
     alert("Entered Key in Text!");
