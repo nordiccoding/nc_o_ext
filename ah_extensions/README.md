@@ -116,16 +116,10 @@ go a long way in assisting with the process.
 Reconciliation models are quick buttons that can be added to the bank reconciliation widget to ease and speed the reconcilliation process. A use case
 would be if discount is offered on swift payment (say of 2%). A quick button can be added for this in the following manner; Make a copy of the standard VAT Rate
 and call it VAT tax inclusive. Go to the advanced option and set "included in price" option. In the "Reconciliation Models" for your bank account (under more option in dashboard)
-you create a new reconciliation model. Create a payment term with 30 Days and 2% discount, do not split the payment for customers as you only want the terms and do not want to receivable
-to be spli over several lines.
+you create a new reconciliation model. Create a payment term with 30 Days and 2% discount, do not split the payment for customers as you only want the terms and do not want to receivable to be spli over several lines. 
 
-link_bank_to_partner (will change the partner of a bank account) and must removed.
-
-comment out _complete_statement from OCA module account_bank_statement_import. This part was used to find partner and his bank account and it was creating bank accounts if they weren't found in the system. 
-
-Odoo function link_bank_to_partner. This function re-links bank account to a partner if they appeared in bank statement line, and partner on the bank statement is different than the partner on bank account. This is happening after reconciliation, and after closing of bank statement.
-
-
+*link_bank_to_partner*
+link_bank_to_partner (will change the partner of a bank account) and must removed. comment out _complete_statement from OCA module account_bank_statement_import. This part was used to find partner and his bank account and it was creating bank accounts if they weren't found in the system. Odoo function link_bank_to_partner. This function re-links bank account to a partner if they appeared in bank statement line, and partner on the bank statement is different than the partner on bank account. This is happening after reconciliation, and after closing of bank statement.
 
 
 
