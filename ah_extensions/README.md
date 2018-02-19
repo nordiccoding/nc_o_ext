@@ -47,6 +47,7 @@ Load Language DE
 Import Bank
 Import partners
 Logo
+search apps for SEPA and install relevant modules
 
 pip install unidecode (required for banking plain)
 
@@ -106,6 +107,8 @@ Creditor Identifier for testing purposes: DE98ZZZ09999999999
 source ( https://www.bundesbank.de/Redaktion/EN/Standardartikel/Tasks/Payment_systems/sepa_creditor_identifier.html )
 
 
+When settingup the bank accounts the default accounts in chart of accounts must be fixed. Fix also cash journal / account.
+
 Bank Reconciliation
 -------------------
 
@@ -120,7 +123,6 @@ you create a new reconciliation model. Create a payment term with 30 Days and 2%
 
 *link_bank_to_partner*
 link_bank_to_partner (will change the partner of a bank account) and must removed. comment out _complete_statement from OCA module account_bank_statement_import. This part was used to find partner and his bank account and it was creating bank accounts if they weren't found in the system. Odoo function link_bank_to_partner. This function re-links bank account to a partner if they appeared in bank statement line, and partner on the bank statement is different than the partner on bank account. This is happening after reconciliation, and after closing of bank statement.
-
 
 
 Excellent Links
