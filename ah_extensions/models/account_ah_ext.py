@@ -50,3 +50,21 @@ class AccountJournal(models.Model):
             # Or they are part of a bank journal and their partner_id must be the company's partner_id.
             if self.bank_account_id.partner_id != self.company_id.partner_id:
                 raise ValidationError(_('The holder of a journal\'s bank account must be the company (%s).') % self.company_id.name)
+
+
+
+class AccountPayment(models.Model):
+    _inherit = "account.payment"
+
+    @api.one
+    @api.constrains('payment_method_id', 'journal_id')
+    def _check_bank_account(self):
+        
+        print "Now overriding the enterprise version of _check_bank_account"
+
+        if self.payment_method_id == self.env.ref('account_sepa.account_payment_method_sepa_ct'):
+            if not self.journal_id.bank_account_id or not self.journal_id.bank_account_id.acc_type == 'iban':
+                raise ValidationError(_("The journal '%s' requires a proper IBAN account to pay via SEPA. Please configure it first.") % self.journal_id.name)
+            if not self.journal_id.bank_account_id.bank_bic:
+                raise ValidationError(_("The account '%s' (journal %s) requires a Bank Identification Code (BIC) to pay via SEPA. Please configure it first.")
+                    % (self.journal_id.bank_account_id.acc_number, self.journal_id.name))
