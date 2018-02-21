@@ -24,6 +24,8 @@ class AccountBankStatement(models.Model):
 
     @api.multi
     def link_bank_to_partner(self):
-        raise("This should not be executed, it gets called from button_confirm_bank .... ")
+        #raise("This should not be executed, it gets called from button_confirm_bank .... ")
+        print "method link_bank_to_partner has been deprecated ...."
+        pass
 
 

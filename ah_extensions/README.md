@@ -105,6 +105,8 @@ Bank setup
 
 Creditor Identifier for testing purposes: DE98ZZZ09999999999
 source ( https://www.bundesbank.de/Redaktion/EN/Standardartikel/Tasks/Payment_systems/sepa_creditor_identifier.html )
+https://www.bundesbank.de/Navigation/DE/Aufgaben/Unbarer_Zahlungsverkehr/SEPA/Glaeubiger_Identifikationsnummer/glaeubiger_identifikationsnummer.html
+
 
 
 When settingup the bank accounts the default accounts in chart of accounts must be fixed. Fix also cash journal / account.
