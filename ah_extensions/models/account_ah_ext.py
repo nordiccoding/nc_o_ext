@@ -54,6 +54,25 @@ class AccountInvoice(models.Model):
                 if self.search([('type', '=', invoice.type), ('reference', '=', invoice.reference), ('company_id', '=', invoice.company_id.id), ('commercial_partner_id', '=', invoice.commercial_partner_id.id), ('id', '!=', invoice.id)]):
                     raise UserError(_("Duplicated vendor reference detected. You probably encoded twice the same vendor bill/refund."))
 
+    @api.multi
+    def finalize_invoice_move_lines(self, move_lines):
+        """ finalize_invoice_move_lines(move_lines) -> move_lines
+
+            Hook method to be overridden in additional modules to verify and
+            possibly alter the move lines to be created by an invoice, for
+            special cases.
+            :param move_lines: list of dictionaries with the account.move.lines (as for create())
+            :return: the (possibly updated) final move_lines to create for this invoice
+        """
+        for m in move_lines:
+            #m is a list with the AML as dict in 2
+            pprint.pprint( m[2] )
+
+            if m[2]["name"] =="Inv Ref: n.a.":
+                m[2]["name"] = "! xxxx !"
+            
+        return move_lines
+
 
     @api.multi
     def action_move_create(self):
@@ -102,7 +121,8 @@ class AccountInvoice(models.Model):
 
                     iml.append({
                         'type': 'dest',
-                        'name': name,
+                        #and here same as below
+                        'name': 'Inv Ref: %s' % (inv.reference if inv.reference else 'n.a.'), 
                         'price': t[1],
                         'account_id': inv.account_id.id,
                         'date_maturity': t[0],
@@ -114,7 +134,7 @@ class AccountInvoice(models.Model):
                 iml.append({
                     'type': 'dest',
                     #added this to get the inv. number included in AML
-                    'name': 'name': 'Inv Ref: %s' % (inv.reference if inv.reference else 'n.a. - the sequence id should go here for out invoices'),   #a if condition else b
+                    'name': 'Inv Ref: %s' % (inv.reference if inv.reference else 'n.a.'), 
                     'price': total,
                     'account_id': inv.account_id.id,
                     'date_maturity': inv.date_due,
