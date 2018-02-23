@@ -114,7 +114,7 @@ class AccountInvoice(models.Model):
                 iml.append({
                     'type': 'dest',
                     #added this to get the inv. number included in AML
-                    'name': 'Inv Ref: %s' % (inv.reference),
+                    'name': 'name': 'Inv Ref: %s' % (inv.reference if inv.reference else 'n.a. - the sequence id should go here for out invoices'),   #a if condition else b
                     'price': total,
                     'account_id': inv.account_id.id,
                     'date_maturity': inv.date_due,
