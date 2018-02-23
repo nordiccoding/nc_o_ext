@@ -65,8 +65,6 @@ class AccountInvoice(models.Model):
             :return: the (possibly updated) final move_lines to create for this invoice
         """
         for m in move_lines:
-            #m is a list with the AML as dict in 2
-            pprint.pprint( m[2] )
 
             if m[2]["name"] =="Inv Ref: n.a.":
                 m[2]["name"] = "! xxxx !"
