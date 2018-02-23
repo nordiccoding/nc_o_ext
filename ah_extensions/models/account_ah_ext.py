@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 class AccountAccount(models.Model):
 
@@ -94,4 +95,3 @@ class AccountPayment(models.Model):
 
 
 
-                    
