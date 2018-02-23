@@ -67,7 +67,7 @@ class AccountInvoice(models.Model):
         for m in move_lines:
 
             if m[2]["name"] =="Inv Ref: n.a.":
-                m[2]["name"] = "! xxxx !"
+                m[2]["name"] = "! sequence of out-invoice !"
             
         return move_lines
 
