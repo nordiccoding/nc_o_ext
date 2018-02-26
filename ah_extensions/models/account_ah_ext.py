@@ -174,6 +174,9 @@ class AccountInvoice(models.Model):
                 if not aml_id.name or aml_id.name=='Inv Ref: INV_REF':
                     aml_id.name = move.name
 
+            #name is left blank as default, this corrects that
+            if not inv.name:
+                inv.name = move.name
 
             vals = {
                 'move_id': move.id,
