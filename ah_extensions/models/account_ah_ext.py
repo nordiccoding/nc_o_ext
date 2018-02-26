@@ -101,7 +101,7 @@ class AccountInvoice(models.Model):
             # create one move line for the total and possibly adjust the other lines amount
             total, total_currency, iml = inv.with_context(ctx).compute_invoice_totals(company_currency, iml)
 
-            name = inv.name or 'inv nr needs to go here!'
+            name = inv.name or '/'
             if inv.payment_term_id:
                 totlines = inv.with_context(ctx).payment_term_id.with_context(currency_id=company_currency.id).compute(total, inv.date_invoice)[0]
                 res_amount_currency = total_currency
@@ -120,7 +120,7 @@ class AccountInvoice(models.Model):
                     iml.append({
                         'type': 'dest',
                         #and here same as below
-                        'name': 'Inv Ref: %s' % (inv.reference if inv.reference else 'n.a.'), 
+                        'name': 'Inv Ref: %s' % (inv.reference if inv.reference else 'INV_REF'), 
                         'price': t[1],
                         'account_id': inv.account_id.id,
                         'date_maturity': t[0],
@@ -132,7 +132,7 @@ class AccountInvoice(models.Model):
                 iml.append({
                     'type': 'dest',
                     #added this to get the inv. number included in AML
-                    'name': 'Inv Ref: %s' % (inv.reference if inv.reference else 'n.a.'), 
+                    'name': 'Inv Ref: %s' % (inv.reference if inv.reference else 'INV_REF'), 
                     'price': total,
                     'account_id': inv.account_id.id,
                     'date_maturity': inv.date_due,
@@ -167,6 +167,14 @@ class AccountInvoice(models.Model):
             # account move reference when creating the same invoice after a cancelled one:
             move.post()
             # make the invoice point to that move
+
+            #adjust AM and AML: add sequence id to the move and ref
+            move.ref = move.name
+            for aml_id in move.line_ids:
+                if not aml_id.name or aml_id.name=='Inv Ref: INV_REF':
+                    aml_id.name = move.name
+
+
             vals = {
                 'move_id': move.id,
                 'date': date,
