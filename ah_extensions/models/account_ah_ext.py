@@ -27,7 +27,7 @@ class AccountBankStatement(models.Model):
     @api.multi
     def link_bank_to_partner(self):
         #raise("This should not be executed, it gets called from button_confirm_bank .... ")
-        print "method link_bank_to_partner has been deprecated ...."
+        print ("method link_bank_to_partner has been deprecated ....")
         pass
 
 
@@ -202,7 +202,7 @@ class AccountJournal(models.Model):
         if self.type == 'bank' and self.bank_account_id:
             if self.bank_account_id.company_id != self.company_id:
                 #raise ValidationError(_('The bank account of a bank journal must belong to the same company (%s).') % self.company_id.name)
-                print "The validation error was removed -> The bank account of a bank journal must belong to the same company"
+                print ("The validation error was removed -> The bank account of a bank journal must belong to the same company")
             # A bank account can belong to a customer/supplier, in which case their partner_id is the customer/supplier.
             # Or they are part of a bank journal and their partner_id must be the company's partner_id.
             if self.bank_account_id.partner_id != self.company_id.partner_id:
@@ -217,7 +217,7 @@ class AccountPayment(models.Model):
     @api.constrains('payment_method_id', 'journal_id')
     def _check_bank_account(self):
         
-        print "Now overriding the enterprise version of _check_bank_account"
+        print ("Now overriding the enterprise version of _check_bank_account")
 
         if self.payment_method_id == self.env.ref('account_sepa.account_payment_method_sepa_ct'):
             if not self.journal_id.bank_account_id or not self.journal_id.bank_account_id.acc_type == 'iban':
